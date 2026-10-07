@@ -1,0 +1,1395 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+:root {
+
+    --bg: #071116;
+    --panel: #0d1b21;
+    --panel-light: #12252c;
+
+    --text: #edf4f4;
+    --muted: #8ea4aa;
+
+    --accent: #54d6b5;
+    --accent-dark: #2aa58a;
+
+    --border: rgba(255,255,255,0.08);
+
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(84,214,181,0.10),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        Inter,
+        Segoe UI,
+        Arial,
+        sans-serif;
+
+}
+
+
+button,
+input {
+
+    font: inherit;
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+
+    height: 76px;
+
+    padding:
+        0 5vw;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(7,17,22,0.88);
+
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.brand-mark {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid var(--accent);
+
+    color: var(--accent);
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+}
+
+
+.brand-title {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.brand-subtitle {
+
+    font-size: 10px;
+
+    color: var(--muted);
+
+    letter-spacing: 2px;
+
+}
+
+
+.header-status {
+
+    font-size: 11px;
+
+    color: var(--muted);
+
+    letter-spacing: 1px;
+
+}
+
+
+.status-dot {
+
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+
+    width: min(
+        1400px,
+        90%
+    );
+
+    margin:
+        0 auto;
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    min-height: 360px;
+
+    margin-top: 32px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 60px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(7,17,22,0.98),
+            rgba(7,17,22,0.13)
+        ),
+
+        url("/assets/hero-hydrogen-energy.png")
+        center / cover;
+
+}
+
+
+.hero-content {
+
+    max-width: 780px;
+
+}
+
+
+.eyebrow,
+.section-label {
+
+    color: var(--accent);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.hero h1 {
+
+    margin:
+        14px 0;
+
+    font-size:
+        clamp(36px, 5vw, 70px);
+
+    line-height: 1.02;
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: var(--accent);
+
+}
+
+
+.hero-description {
+
+    max-width: 680px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+.price-section {
+
+    margin-top: 50px;
+
+}
+
+
+.price-card {
+
+    margin-top: 15px;
+
+    padding: 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+}
+
+
+.price-title {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+.main-price {
+
+    margin-top: 8px;
+
+    font-size: 54px;
+
+    font-weight: 700;
+
+}
+
+
+.price-date {
+
+    color: var(--muted);
+
+    margin-top: 5px;
+
+}
+
+
+.gas-price-box {
+
+    text-align: right;
+
+}
+
+
+.small-label {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.gas-price {
+
+    margin-top: 7px;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+}
+
+
+.unit {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+.data-note {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   CHART
+   ========================================================= */
+
+.chart-section {
+
+    margin-top: 50px;
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+
+h2 {
+
+    margin:
+        8px 0 20px;
+
+    font-size: 28px;
+
+}
+
+
+.chart {
+
+    width: 100%;
+
+    height: 560px;
+
+    background: var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+
+.range-controls {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 12px;
+
+}
+
+
+.range-controls button {
+
+    border:
+        1px solid var(--border);
+
+    background: var(--panel);
+
+    color: var(--muted);
+
+    padding:
+        8px 15px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+}
+
+
+.range-controls button.active {
+
+    color: var(--accent);
+
+    border-color: var(--accent);
+
+}
+
+
+.selected-point {
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    color: var(--muted);
+
+    background: var(--panel);
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+}
+
+
+.selected-point strong {
+
+    color: var(--text);
+
+}
+
+
+/* =========================================================
+   CONTROLS
+   ========================================================= */
+
+.controls-section {
+
+    margin-top: 50px;
+
+    padding: 30px;
+
+    background: var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+}
+
+
+.controls-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.controls-grid label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+.controls-grid input,
+.range-inputs input {
+
+    padding: 12px;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+}
+
+
+/* =========================================================
+   ANALYSIS
+   ========================================================= */
+
+.analysis-grid {
+
+    margin-top: 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap: 20px;
+
+}
+
+
+.analysis-card {
+
+    padding: 25px;
+
+    min-height: 360px;
+
+    background: var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+}
+
+
+.analysis-card h3 {
+
+    margin-top: 8px;
+
+}
+
+
+.range-inputs {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.small-chart {
+
+    height: 230px;
+
+    margin-top: 10px;
+
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.statistics-card table {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    border-collapse: collapse;
+
+}
+
+
+.statistics-card td {
+
+    padding:
+        11px 0;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.statistics-card td:last-child {
+
+    text-align: right;
+
+    color: var(--accent);
+
+    font-weight: 700;
+
+}
+
+
+.stat-note {
+
+    margin-top: 20px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   METHODOLOGY
+   ========================================================= */
+
+.methodology {
+
+    margin:
+        50px 0;
+
+    max-width: 950px;
+
+}
+
+
+.methodology p {
+
+    color: var(--muted);
+
+    line-height: 1.8;
+
+    text-align: justify;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    padding: 30px 5vw;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,0.82);
+
+}
+
+
+.modal-card {
+
+    width: min(
+        620px,
+        100%
+    );
+
+    padding: 40px;
+
+    background: var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+}
+
+
+.modal-card h1 {
+
+    margin-top: 10px;
+
+}
+
+
+.modal-card p {
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+}
+
+
+.agreement {
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: flex-start;
+
+    margin:
+        25px 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+}
+
+
+.modal-card button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: var(--accent);
+
+    color: #06100e;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.modal-card button:disabled {
+
+    opacity: 0.35;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .analysis-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .controls-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .price-card {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 30px;
+
+    }
+
+    .gas-price-box {
+
+        text-align: left;
+
+    }
+
+    .hero {
+
+        padding: 35px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+
+        font-size: 36px;
+
+    }
+
+    .main-price {
+
+        font-size: 42px;
+
+    }
+
+    .chart {
+
+        height: 430px;
+
+    }
+
+}
+
+
+/* ============================================================
+   CSV DOWNLOAD POPUP
+   ============================================================ */
+
+#csvDownloadModal {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    background: transparent;
+}
+
+
+.csv-modal-content {
+
+    position: fixed;
+
+    width: 390px;
+    max-width: calc(100vw - 24px);
+
+    padding: 20px;
+
+    background: var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.45);
+
+    pointer-events: auto;
+}
+
+
+/* ============================================================
+   CSV POPUP HEADER
+   ============================================================ */
+
+.csv-modal-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.csv-modal-title {
+
+    color: var(--text);
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+
+.csv-modal-subtitle {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+.csv-close-button {
+
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 20px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease;
+}
+
+
+.csv-close-button:hover {
+
+    color: var(--text);
+
+    border-color:
+        var(--accent);
+
+    background:
+        rgba(84, 214, 181, 0.08);
+}
+
+
+/* ============================================================
+   CSV DATE FIELDS
+   ============================================================ */
+
+.csv-date-fields {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 8px;
+}
+
+
+.csv-date-fields label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.csv-date-fields input {
+
+    width: 100%;
+
+    padding:
+        10px 11px;
+
+    background:
+        var(--bg);
+
+    color:
+        var(--text);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    outline: none;
+}
+
+
+.csv-date-fields input:focus {
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 0 2px
+        rgba(84, 214, 181, 0.08);
+}
+
+
+/* ============================================================
+   CSV ERROR
+   ============================================================ */
+
+.csv-download-error {
+
+    min-height: 18px;
+
+    margin-top: 7px;
+    margin-bottom: 10px;
+
+    color:
+        #ff7777;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   CSV ACTIONS
+   ============================================================ */
+
+.csv-modal-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 5px;
+}
+
+
+.csv-modal-actions button {
+
+    padding:
+        9px 13px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.csv-cancel-button {
+
+    border:
+        1px solid var(--border);
+
+    background:
+        transparent;
+
+    color:
+        var(--muted);
+}
+
+
+.csv-cancel-button:hover {
+
+    color:
+        var(--text);
+
+    border-color:
+        rgba(255,255,255,0.18);
+}
+
+
+.csv-download-button {
+
+    border:
+        1px solid var(--accent);
+
+    background:
+        var(--accent);
+
+    color:
+        #06100e;
+}
+
+
+.csv-download-button:hover {
+
+    background:
+        #68e0c1;
+
+    border-color:
+        #68e0c1;
+}
+
+
+/* ============================================================
+   CSV POPUP RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .csv-modal-content {
+
+        width:
+            calc(100vw - 24px);
+
+        padding:
+            17px;
+    }
+
+
+    .csv-date-fields {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .csv-modal-actions {
+
+        justify-content:
+            stretch;
+    }
+
+
+    .csv-modal-actions button {
+
+        flex:
+            1;
+    }
+
+}
+
+
+
+/* =========================================================
+   SUBTLE GLASS EFFECT
+   ========================================================= */
+
+.price-card,
+.controls-section,
+.analysis-card,
+.selected-point {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.012)
+        ),
+        rgba(13,27,33,0.68);
+
+    border:
+        1px solid rgba(255,255,255,0.085);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.14);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+}
+
+
+/* =========================================================
+   RESET MODEL BUTTON
+   ========================================================= */
+
+.reset-model-button {
+
+    margin-top: 16px;
+
+    padding:
+        10px 16px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color:
+        var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.4px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.reset-model-button:hover {
+
+    background:
+        rgba(84,214,181,0.075);
+
+    border-color:
+        rgba(84,214,181,0.42);
+
+    color:
+        var(--accent);
+
+    box-shadow:
+        0 5px 18px rgba(84,214,181,0.08);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+.reset-model-button:active {
+
+    transform:
+        translateY(0);
+
+    box-shadow:
+        none;
+
+}
+
+
+/* =========================================================
+   HERO RESEARCH REFERENCE
+   ========================================================= */
+
+.hero-reference {
+
+    margin-top: 24px;
+
+    padding-top: 16px;
+
+
+    max-width: 600px;
+
+    text-align: justify;
+
+}
+
+
+.reference-label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        var(--accent);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+}
+
+
+.reference-text {
+
+    color:
+        rgba(237,244,244,0.62);
+
+    font-size: 11px;
+
+    line-height: 1.65;
+
+}
+
+
+.reference-text a {
+
+    color:
+        var(--accent);
+
+    text-decoration:
+        none;
+
+    margin-left: 5px;
+
+}
+
+
+.reference-text a:hover {
+
+    text-decoration:
+        underline;
+
+}

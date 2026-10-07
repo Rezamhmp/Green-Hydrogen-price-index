@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Green Hydrogen Price Index
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         DISCLAIMER
+         ===================================================== -->
+
+    <div
+        id="disclaimer"
+        class="modal-overlay"
+    >
+
+        <div class="modal-card">
+
+            <div class="modal-label">
+                RESEARCH INFORMATION
+            </div>
+
+            <h1>
+                Before You Continue
+            </h1>
+
+            <p>
+
+                This website provides an indicative,
+                model-based green hydrogen price index
+                for research, educational, and comparative
+                purposes.
+
+            </p>
+
+            <p>
+
+                The displayed values are not official market
+                quotations, investment recommendations,
+                financial advice, or guarantees of economic
+                feasibility.
+
+            </p>
+
+            <p>
+
+                Users considering hydrogen production projects
+                should conduct their own detailed technical,
+                economic, regulatory, and financial assessment.
+
+            </p>
+
+            <label class="agreement">
+
+                <input
+                    type="checkbox"
+                    id="agreeCheckbox"
+                >
+
+                <span>
+                    I understand and agree to the above.
+                </span>
+
+            </label>
+
+            <button
+                id="enterButton"
+                disabled
+            >
+                Enter the Index
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="site-header">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                H₂
+            </div>
+
+            <div>
+
+                <div class="brand-title">
+                    GREEN HYDROGEN
+                </div>
+
+                <div class="brand-subtitle">
+                    PRICE INDEX
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="header-status">
+
+            <span class="status-dot"></span>
+
+            MODEL ACTIVE
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="container">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    ENERGY MARKET INTELLIGENCE
+                </div>
+
+                <h1>
+                    Indicative Competitive
+                    <span>
+                        Green Hydrogen Selling Price
+                    </span>
+                </h1>
+
+                <p class="hero-description">
+
+                    A transparent, model-based indicator
+                    linking natural gas market prices to
+                    an indicative competitive selling price
+                    for green hydrogen.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CURRENT PRICE
+             ================================================= -->
+
+        <section class="price-section">
+
+            <div class="section-label">
+                LATEST COMPLETED TRADING SESSION
+            </div>
+
+            <div class="price-card">
+
+                <div>
+
+                    <div class="price-title">
+                        Indicative Green Hydrogen Price
+                    </div>
+
+                    <div
+                        id="currentPrice"
+                        class="main-price"
+                    >
+                        —
+                    </div>
+
+                    <div
+                        id="currentDate"
+                        class="price-date"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+                <div class="gas-price-box">
+
+                    <div class="small-label">
+                        NATURAL GAS CLOSE
+                    </div>
+
+                    <div
+                        id="gasPrice"
+                        class="gas-price"
+                    >
+                        —
+                    </div>
+
+                    <div class="unit">
+                        USD/MMBtu
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p class="data-note">
+
+                The index is updated using the latest
+                completed daily NG=F trading session.
+                Intraday prices are not used.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             MAIN CHART
+             ================================================= -->
+
+        <section class="chart-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="section-label">
+                        HISTORICAL INDEX
+                    </div>
+
+                    <h2>
+                        Green Hydrogen Price History
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <div
+                id="mainChart"
+                class="chart"
+            ></div>
+
+            <div class="range-controls">
+
+                <button data-range="7">
+                    7D
+                </button>
+
+                <button data-range="30">
+                    30D
+                </button>
+
+                <button data-range="90">
+                    90D
+                </button>
+
+                <button data-range="365">
+                    1Y
+                </button>
+
+                <button
+                    data-range="max"
+                    class="active"
+                >
+                    MAX
+                </button>
+
+            </div>
+
+            <div class="selected-point">
+
+                Selected observation:
+
+                <strong id="selectedDate">
+                    Latest
+                </strong>
+
+                |
+
+                Hydrogen price:
+
+                <strong id="selectedHydrogen">
+                    —
+                </strong>
+
+                |
+
+                Natural gas:
+
+                <strong id="selectedGas">
+                    —
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MODEL CONTROLS
+             ================================================= -->
+
+        <section class="controls-section">
+
+            <div class="section-label">
+                MODEL PARAMETERS
+            </div>
+
+            <h2>
+                Interactive Model Controls
+            </h2>
+
+            <div class="controls-grid">
+
+                <label>
+
+                    <span>
+                        Green / Grey Multiplier
+                    </span>
+
+                    <input
+                        id="multiplierInput"
+                        type="number"
+                        step="0.1"
+                        value="4.3"
+                    >
+
+                </label>
+
+
+                <label>
+
+                    <span>
+                        Fixed Cost (USD/kg H₂)
+                    </span>
+
+                    <input
+                        id="fixedCostInput"
+                        type="number"
+                        step="0.01"
+                        value="1.75"
+                    >
+
+                </label>
+
+
+                <label>
+
+                    <span>
+                        SMR Efficiency
+                    </span>
+
+                    <input
+                        id="smrInput"
+                        type="number"
+                        step="0.001"
+                        value="0.352"
+                    >
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ANALYSIS GRID
+             ================================================= -->
+
+        <section class="analysis-grid">
+
+
+            <!-- MULTIPLIER -->
+
+            <div class="analysis-card">
+
+                <div class="section-label">
+                    SENSITIVITY
+                </div>
+
+                <h3>
+                    Green / Grey Multiplier
+                </h3>
+
+                <div class="range-inputs">
+
+                    <input
+                        id="multMin"
+                        type="number"
+                        step="0.1"
+                        value="3.5"
+                    >
+
+                    <input
+                        id="multMax"
+                        type="number"
+                        step="0.1"
+                        value="5.0"
+                    >
+
+                </div>
+
+                <div
+                    id="multiplierChart"
+                    class="small-chart"
+                ></div>
+
+            </div>
+
+
+            <!-- FIXED COST -->
+
+            <div class="analysis-card">
+
+                <div class="section-label">
+                    SENSITIVITY
+                </div>
+
+                <h3>
+                    Fixed Cost
+                </h3>
+
+                <div class="range-inputs">
+
+                    <input
+                        id="fixedMin"
+                        type="number"
+                        step="0.1"
+                        value="1.0"
+                    >
+
+                    <input
+                        id="fixedMax"
+                        type="number"
+                        step="0.1"
+                        value="2.5"
+                    >
+
+                </div>
+
+                <div
+                    id="fixedCostChart"
+                    class="small-chart"
+                ></div>
+
+            </div>
+
+
+            <!-- STATISTICAL TABLE -->
+
+            <div class="analysis-card statistics-card">
+
+                <div class="section-label">
+                    STATISTICAL VIEW
+                </div>
+
+                <h3>
+                    95% Historical Interval
+                </h3>
+
+                <table>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                Selected Price
+                            </td>
+
+                            <td id="statSelected">
+                                —
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Historical Minimum
+                            </td>
+
+                            <td id="statMin">
+                                —
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Historical Maximum
+                            </td>
+
+                            <td id="statMax">
+                                —
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                2.5th Percentile
+                            </td>
+
+                            <td id="statP025">
+                                —
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                97.5th Percentile
+                            </td>
+
+                            <td id="statP975">
+                                —
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <p class="stat-note">
+
+                    The percentile interval is an empirical
+                    historical range. It should not be
+                    interpreted as a probabilistic forecast
+                    interval.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             METHODOLOGY
+             ================================================= -->
+
+        <section class="methodology">
+
+            <div class="section-label">
+                METHODOLOGY
+            </div>
+
+            <h2>
+                About the Index
+            </h2>
+
+            <p>
+
+                This index estimates an indicative competitive selling price for green hydrogen
+                using the empirical green-hydrogen-to-natural-gas price relationship presented in Mahmoodpoor et al. (2026)
+
+            </p>
+
+            <p>
+
+                The model uses the daily closing price of front-month Henry Hub natural gas
+                futures as the market-linked input and converts it into an indicative hydrogen
+                selling price through the pricing formulation presented in the study.
+
+            </p>
+
+            <p>
+
+                The formulation, including the underlying assumptions and parameter definitions,
+                is presented in the research article and detailed further in
+                <strong>Supplementary Material, Appendix A:
+                "Modeling and Price Estimation of Green Hydrogen."</strong>
+                The appendix also provides the supporting derivation and validation of the
+                adopted green-to-gray hydrogen price relationship.
+
+            </p>
+
+            <p>
+
+                The green-hydrogen production-cost component
+                represented in the study is incorporated through
+                the empirical green-to-grey multiplier. This
+                multiplier reflects the technology and market
+                conditions underlying the research framework and
+                may change as technology, costs, and market
+                conditions evolve.
+
+            </p>
+
+            <p>
+
+                A producer whose actual production cost is below
+                the indicated price may have greater economic
+                potential, while additional subsidies or incentives
+                may further improve project economics.
+
+            </p>
+
+            <p>
+
+                The complete mathematical formulation, assumptions,
+                derivation, and supporting references are documented
+                in the associated peer-reviewed research article
+                and supplementary material.
+
+            </p>
+
+            <div class="hero-reference">
+
+                <span class="reference-label">
+                    RESEARCH REFERENCE
+                </span>
+
+                <div class="reference-text">
+
+                    Mahmoodpoor, R., Kiyoumarsioskouei, A., Jafari, F., &amp;
+                    Hossainpour, S. (2026).
+                    <em>
+                        Virtual Energy Storage through Profit Optimization:
+                        A Risk-Based Framework for Hybrid Solar–Wind Systems
+                        with Hydrogen and Cryptocurrency Revenues.
+                    </em>
+
+                    <em>Results in Engineering</em>, 112494.
+
+                    <a
+                        href="https://doi.org/10.1016/j.rineng.2026.112494"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        DOI: 10.1016/j.rineng.2026.112494
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <div>
+            GREEN HYDROGEN PRICE INDEX
+        </div>
+
+        <div>
+            Research &amp; educational use
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         PLOTLY
+         ===================================================== -->
+
+    <script
+        src="https://cdn.plot.ly/plotly-2.35.2.min.js"
+    ></script>
+
+    <script
+        src="/static/app.js"
+    ></script>
+
+</body>
+
+</html>
